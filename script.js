@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to display predictions
     function displayPredictions() {
         // Send a GET request to your backend to retrieve all predictions
-        fetch("http://localhost:3000/api/predictions") // Modify this URL to match your server
+        fetch("https://wtd-o80p5gfyl-aarnav1729.vercel.app/") // Modify this URL to match your server
             .then(response => response.json())
             .then(predictions => {
                 predictionList.innerHTML = "";
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const prediction = { text: predictionText, rating: rating };
 
             // Send a POST request to your backend to create a new prediction
-            fetch("http://localhost:3000/api/predictions", { // Modify this URL to match your server
+            fetch("https://wtd-o80p5gfyl-aarnav1729.vercel.app/", { // Modify this URL to match your server
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
