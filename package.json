@@ -1,0 +1,17 @@
+{
+  "name": "wtd",
+  "version": "1.0.0",
+  "description": "A prediction based betting web application that allows users to write down their predictions about the future on a community board and uses javascript to assign it an automated rating based on a scale of likeliness. Project also includes user authentication, database management to track predictions and win percentage along with an admin login page.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.2"
+  }
+}
