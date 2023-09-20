@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to display predictions
     function displayPredictions() {
         // Send a GET request to your backend to retrieve all predictions
-        fetch("https://wtd-o80p5gfyl-aarnav1729.vercel.app/") // Modify this URL to match your server
+        fetch("https://wtd-9gvze9o6l-aarnav1729.vercel.app/") // Modify this URL to match your server
             .then(response => response.json())
             .then(predictions => {
                 predictionList.innerHTML = "";
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Send a POST request to your backend to create a new prediction
             
-            fetch("https://wtd-o80p5gfyl-aarnav1729.vercel.app/", { // Modify this URL to match your server
+            fetch("https://wtd-9gvze9o6l-aarnav1729.vercel.app/", { // Modify this URL to match your server
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
