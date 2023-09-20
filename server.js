@@ -1,46 +1,30 @@
-// server.js
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; // Use the provided PORT or 3000 as a fallback
 
-// Database connection
-mongoose.connect('mongodb://localhost:27017/wtd', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+app.use(express.json());
+
+// Serve static files (HTML, CSS, JavaScript)
+app.use(express.static('public'));
+
+// Define an endpoint for retrieving predictions
+app.get('/predictions', (req, res) => {
+  // Replace this with your logic to fetch predictions from a database or storage
+  // For now, we'll return a dummy response
+  const predictions = [
+    { text: 'Sample Prediction 1', rating: 3 },
+    { text: 'Sample Prediction 2', rating: 4 },
+  ];
+  res.json(predictions);
 });
 
-const Prediction = mongoose.model('Prediction', {
-  text: String,
-  rating: Number,
-  createdAt: { type: Date, default: Date.now },
-});
-
-// Middleware to parse JSON data
-app.use(bodyParser.json());
-
-// Create a new prediction
-app.post('/api/predictions', async (req, res) => {
-  try {
-    const { text, rating } = req.body;
-    const prediction = new Prediction({ text, rating });
-    await prediction.save();
-    res.json(prediction);
-  } catch (error) {
-    res.status(500).json({ error: 'Error creating prediction' });
-  }
-});
-
-// Get all predictions
-app.get('/api/predictions', async (req, res) => {
-  try {
-    const predictions = await Prediction.find().sort({ createdAt: -1 });
-    res.json(predictions);
-  } catch (error) {
-    res.status(500).json({ error: 'Error fetching predictions' });
-  }
+// Define an endpoint for adding a new prediction
+app.post('/predictions', (req, res) => {
+  const prediction = req.body;
+  // Replace this with your logic to save the prediction to a database or storage
+  // For now, we'll just log the received prediction
+  console.log('Received prediction:', prediction);
+  res.sendStatus(200);
 });
 
 app.listen(port, () => {
